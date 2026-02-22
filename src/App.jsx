@@ -1,31 +1,41 @@
-import { useEffect } from 'react';
 import './App.css'
-import Pokelist from './components/pokelist'
-import { Link, useNavigate } from 'react-router'
+import PokeSearch from './components/PokeSearch';
+import PokePage from './components/PokePage';
+import PokeForm from './components/PokeForm';
+import { SWRConfig } from 'swr';
+import 'material-symbols/outlined.css';
+import { RouterProvider, createBrowserRouter } from 'react-router';
+
+
+const options = {
+    fetcher: (resource, init) => fetch(resource, init).then(res => res.json())
+}
+
+const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <PokeSearch />,
+    },
+    {
+      path: "/pokemon/:id",
+      element: <PokePage />,
+    },
+    {
+      path: "/pokemon/:id/edit",
+      element: <PokeForm />,
+    },
+    {
+      path: "/create",
+      element: <PokeForm />,
+    }
+  ]);
 
 function App() {
-  const navigate = useNavigate();
-  console.log(navigate);
-
-  useEffect(() => {
-    console.log("App component mounted");
-
-    // setTimeout(() =>
-      // redirectToDetails()
-      // , 5000);
-
-  }, []);
-
-  const redirectToDetails = () => {
-    navigate('/pokemonDetails');
-  }
 
   return (
-    <div>
-
-      <Link to="/pokemonDetails">Voir les détails du Pokémon</Link>
-      <Pokelist></Pokelist>
-    </div>
+    <SWRConfig value={options}>
+        <RouterProvider router={router} />
+    </SWRConfig> 
   )
 
 }

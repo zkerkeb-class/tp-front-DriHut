@@ -1,0 +1,187 @@
+.poke-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    width: 32em;
+    margin-inline: auto;
+}
+
+.poke-form-card {
+    display: inline-flex;
+    justify-content: space-between;
+    min-width: 100%;
+}
+
+.poke-form-card > .poke-card {
+    width: 20rem;
+}
+
+.stage-progress {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-bottom: 1em;
+    --active-color: field;
+}
+
+.stage-progress > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 9em;
+}
+
+.stage-indicator {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    corner-shape: bevel;
+    border-radius: 50%;
+    background-color: var(--active-color);
+    margin-bottom: .5em;
+    transition: background-color 0.3s;
+}
+
+.stage-indicator.active {
+    --active-color: #fff;
+}
+
+:has(> .stage-indicator.active) > * {
+    cursor: pointer;
+}
+
+
+:not(:first-child) > .stage-indicator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    width: 10em;
+    height: 4px;
+    background-color: var(--active-color);
+    z-index: -1;
+    transition: background-color 0.3s;
+    transform: translateY(-50%);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: .25em;
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    gap: 1em;
+    width: 100%;
+}
+
+.form-group > label {
+    font-size: 1.25em;
+    font-weight: 500;
+    text-align: left;
+}
+
+.form-label-value {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input > div.MuiInputBase-root {
+    padding: 0 2rem;
+}
+
+.input > div.MuiInputBase-root {
+    padding: 0 2rem;
+}
+
+.input .MuiSvgIcon-root {
+    color: #fff
+}
+
+.input fieldset {
+    border: none;
+}
+
+.input input {
+    color: #fff;
+    font-family: "Squada One", sans-serif;
+    font-size: 1.25em;
+    font-weight: 400;
+}
+
+.input .pill {
+    height: 30px;
+    border-radius: 15px;
+    margin-right: .5rem;
+}
+
+div.pill img {
+    width: 30px;
+    height: 30px;
+}
+
+div.pill {
+    border: var(--border) solid var(--accent-color);
+}
+
+.MuiPaper-root {
+    background-color: var(--bg-color) !important;
+    corner-shape: bevel;
+    border-radius: 30px !important;
+    border: var(--border) solid field !important;
+}
+
+.MuiAutocomplete-option > .poke-attack-card {
+    width: 100%;
+}
+
+.MuiSlider-rail {
+    border: var(--border) solid transparent !important;
+    background-color: field !important;
+    height: 8px !important;
+    corner-shape: bevel;
+    border-radius: 4px 0 4px 0 / 100% 0 100% 0 !important;
+}
+
+.MuiSlider-track {
+    border: var(--border) solid var(--accent-color) !important;
+    background-color: var(--accent-color) !important;
+    height: 8px !important;
+    corner-shape: bevel;
+    border-radius: 4px 0 4px 0 / 100% 0 100% 0 !important;
+}
+
+.MuiSlider-thumb {
+    background-color: var(--accent-color) !important;
+    corner-shape: bevel;
+    filter: drop-shadow(#000 0 1px 2px);
+}
+
+.MuiSlider-thumb::before {
+    box-shadow: none !important;
+}
+
+.poke-form-footer {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.poke-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: .25rem;
+    padding: 0 .75rem;
+    box-sizing: border-box;
+    color: #fff;
+    font-family: "Squada One", sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+}
